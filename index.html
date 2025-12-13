@@ -191,6 +191,49 @@
       }
     }
   </style>
+
+<script>
+  // Simple sound mapping for Sanskrit vowels
+  const letterSounds = {
+    "अ": "sounds/a.mp3",
+    "आ": "sounds/aa.mp3",
+    "इ": "sounds/i.mp3",
+    "ई": "sounds/ee.mp3",
+    "उ": "sounds/u.mp3",
+    "ऊ": "sounds/uu.mp3",
+    "ऋ": "sounds/ri.mp3",
+    "ए": "sounds/e.mp3",
+    "ऐ": "sounds/ai.mp3",
+    "ओ": "sounds/o.mp3",
+    "औ": "sounds/au.mp3"
+  };
+
+  let currentAudio = null;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll('.alphabet-card').forEach(card => {
+      const letter = card.textContent.trim();
+
+      const playSound = () => {
+        if (!letterSounds[letter]) return;
+
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+        }
+
+        currentAudio = new Audio(letterSounds[letter]);
+        currentAudio.play();
+      };
+
+      // For desktop (hover)
+      card.addEventListener('mouseenter', playSound);
+
+      // For mobile (tap)
+      card.addEventListener('touchstart', playSound);
+    });
+  });
+</script>
 </head>
 <body>
 
@@ -242,24 +285,42 @@
 </section>
 
 <section id="alphabet" class="section">
-  <h3>Sanskrit Alphabet</h3>
-  <div class="cards">
-    <div class="card">
-      <span class="emoji">🔤</span>
-      <h4>स्वराः – Vowels</h4>
-      <p>
-        Learn vowels like अ, आ, इ, ई with correct pronunciation and examples.
-      </p>
-    </div>
-    <div class="card">
-      <span class="emoji">✍️</span>
-      <h4>व्यञ्जनानि – Consonants</h4>
-      <p>
-        Consonants grouped clearly to make reading and writing easy for kids.
-      </p>
-    </div>
+  <h3>Sanskrit Alphabet – Touch & Learn 🔤</h3>
+  <p style="text-align:center; max-width:700px; margin: -20px auto 40px; font-size:16px; color:#666;">
+    Tap or hover on each letter to hear its pronunciation. Designed especially for young learners.
+  </p>
+
+  <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
+    <div class="card alphabet-card">अ</div>
+    <div class="card alphabet-card">आ</div>
+    <div class="card alphabet-card">इ</div>
+    <div class="card alphabet-card">ई</div>
+    <div class="card alphabet-card">उ</div>
+    <div class="card alphabet-card">ऊ</div>
+    <div class="card alphabet-card">ऋ</div>
+    <div class="card alphabet-card">ए</div>
+    <div class="card alphabet-card">ऐ</div>
+    <div class="card alphabet-card">ओ</div>
+    <div class="card alphabet-card">औ</div>
   </div>
 </section>
+
+<style>
+  .alphabet-card {
+    font-size: 42px;
+    font-weight: 700;
+    padding: 35px 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+    background: linear-gradient(180deg, #FFF7E6, #FFE0B2);
+  }
+
+  .alphabet-card:hover {
+    transform: scale(1.1);
+    background: linear-gradient(180deg, #FFE0B2, #FFD08A);
+  }
+</style>
 
 <section id="stories" class="section">
   <h3>Value-Based Stories</h3>
