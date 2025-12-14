@@ -41,6 +41,28 @@
       font-size: 28px;
       font-weight: 700;
     }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    .login-btn {
+      background: white;
+      color: #A05A1C;
+      padding: 8px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: all 0.25s ease;
+    }
+
+    .login-btn:hover {
+      background: #FFE8C2;
+      transform: translateY(-2px);
+    }
 
     nav a {
       color: white;
@@ -133,12 +155,16 @@
 
 <header>
   <h1>सुगम संस्कृतम्</h1>
-  <nav>
-    <a href="#basics">Basics</a>
-    <a href="varnamala.html">Varnamala</a>
-    <a href="#stories">Stories</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="header-right">
+    <nav>
+      <a href="#basics">Basics</a>
+      <a href="varnamala.html">Varnamala</a>
+      <a href="#stories">Stories</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="login.html" class="login-btn">👨‍👩‍👧 Parent Login</a>
+  </div>
 </header>
 
 <section class="hero">
