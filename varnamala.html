@@ -101,7 +101,18 @@
     }
   </style>
 </head>
-<body>
+<body onload="requireLogin()">
+
+<h2 id="welcome"></h2>
+
+<button onclick="logout()">Logout</button>
+
+<script src="js/auth.js"></script>
+<script>
+  const user = getUser();
+  document.getElementById('welcome').innerText =
+    `Welcome ${user.childName}! 🌸`;
+</script>
 
 <header>
   <h1>वर्णमाला</h1>
