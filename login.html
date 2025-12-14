@@ -145,7 +145,7 @@
       const result = await mockLogin(payload);
 
       if (result.success) {
-        window.location.href = `kids-${result.level}.html`;
+        window.location.href = `kids/level-${result.level}.html`;
       } else {
         alert('Login failed. Please try again.');
       }
